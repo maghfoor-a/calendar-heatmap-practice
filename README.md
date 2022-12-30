@@ -1,3 +1,4 @@
-# Vite-React-TypeScript-Starter-Template
+# React Heatmap Practice
 
-React Typescript template using Vite. This template already has prettier and eslint setup as well as github workflows.
+Learning the react heatmap library because I always something like the github heatmap for my other activities and habits.
+Check out the demo at [https://zippy-longma-47590f.netlify.app/](https://zippy-longma-47590f.netlify.app/)
