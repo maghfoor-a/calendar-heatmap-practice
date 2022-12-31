@@ -1,6 +1,6 @@
 import CalendarHeatmap from "react-calendar-heatmap";
 import "react-calendar-heatmap/dist/styles.css";
-import { startOfYear, endOfYear, eachDayOfInterval, format } from "date-fns";
+import { startOfYear, endOfYear, eachDayOfInterval, format, addYears, subDays } from "date-fns";
 import { useState } from "react";
 import ReactTooltip from "react-tooltip";
 import "./MainBody.css";
@@ -12,8 +12,9 @@ interface DatesWithColour {
   colour: "red" | "filled";
 }
 export default function MainBody(): JSX.Element {
-  const startDate = startOfYear(new Date());
-  const endDate = endOfYear(new Date());
+  const currentDate = new Date();
+  const startDate = subDays(startOfYear(addYears(currentDate, 1)), 1);
+  const endDate = endOfYear(addYears(currentDate, 1));
   const dates = eachDayOfInterval({ start: startDate, end: endDate });
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
 
@@ -58,8 +59,12 @@ export default function MainBody(): JSX.Element {
               return "color-white";
             }}
             tooltipDataAttrs={(value: any) => {
+              let formattedDate: string | undefined;
+          if (value.date) {
+            formattedDate = format(value.date, "MMM dd, yyyy");
+          }
               return {
-                "data-tip": `Value: ${value?.date} & colour is ${value.colour}`,
+                "data-tip": `${formattedDate}`,
               };
             }}
           />
