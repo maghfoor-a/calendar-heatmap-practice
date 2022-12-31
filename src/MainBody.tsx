@@ -40,6 +40,7 @@ export default function MainBody(): JSX.Element {
       <>
         <div className="calendarMap">
           <CalendarHeatmap
+            gutterSize={3}
             showWeekdayLabels={true}
             startDate={startDate}
             endDate={endDate}

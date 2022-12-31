@@ -12,6 +12,11 @@
 .colour-filled {
   fill: green;
 }
+rect {
+  shape-rendering: geometricprecision;
+  rx: 10px;
+  ry: 10px;
+}
 
 /*
  * react-calendar-heatmap styles
